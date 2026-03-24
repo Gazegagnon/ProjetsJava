@@ -15,6 +15,7 @@ app:
   exchange:
     api-url: https://api.exchangerate-api.com/v4/latest/USD
     topic-name: exchange-rates
+    polling-rate-ms: 60000
 
 elasticsearch:
   url: http://localhost:9200
