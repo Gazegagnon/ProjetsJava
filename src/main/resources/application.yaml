@@ -15,3 +15,7 @@ app:
   exchange:
     api-url: https://api.exchangerate-api.com/v4/latest/USD
     topic-name: exchange-rates
+
+elasticsearch:
+  url: http://localhost:9200
+  index-name: exchange_rates
