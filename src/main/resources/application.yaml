@@ -4,7 +4,14 @@ server:
 spring:
   kafka:
     bootstrap-servers: localhost:9092
+    consumer:
+      group-id: exchange-rate-consumer-group
+      auto-offset-reset: earliest
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
 app:
   exchange:
     api-url: https://api.exchangerate-api.com/v4/latest/USD
+    topic-name: exchange-rates
