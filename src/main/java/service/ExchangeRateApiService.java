@@ -11,19 +11,22 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class ExchangeRateApiService {
 
-    // URL de l'API lue depuis application.yaml
     @Value("${app.exchange.api-url}")
     private String apiUrl;
 
-    // Client HTTP simple fourni par Spring
     private final RestTemplate restTemplate = new RestTemplate();
 
     /**
-     * Appelle l'API externe et convertit la réponse JSON en objet Java.
+     * Appelle l'API externe et retourne les taux.
      *
-     * @return la réponse des taux de change
+     * @return la réponse des taux de change, ou null en cas d'erreur
      */
     public ExchangeRateResponse fetchLatestRates() {
-        return restTemplate.getForObject(apiUrl, ExchangeRateResponse.class);
+        try {
+            return restTemplate.getForObject(apiUrl, ExchangeRateResponse.class);
+        } catch (Exception e) {
+            System.out.println("Erreur lors de l'appel à l'API externe : " + e.getMessage());
+            return null;
+        }
     }
 }
