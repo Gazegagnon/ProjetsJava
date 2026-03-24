@@ -4,7 +4,8 @@
 
 \## Objectif
 
-Cette application Java Spring Boot centralise la récupération des taux de change à partir d'une API externe, publie les données dans Kafka, les stocke dans Elasticsearch et permet leur visualisation dans Kibana.
+Cette application Java Spring Boot sert de proxy entre une API externe de taux de change et les équipes internes de l'entreprise.
+Elle centralise la récupération des taux de change à partir de l' API externe, publie les données dans Kafka, les stocke dans Elasticsearch et permet leur visualisation dans Kibana.
 
 
 
